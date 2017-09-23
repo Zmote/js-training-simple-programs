@@ -14,7 +14,7 @@
 })();
 
 
-(function() => {
+(function() {
     let palindroms = findPalindroms("merhaba dostlar ses verin de karpuz kesek");
     console.log(palindroms);
 })();
