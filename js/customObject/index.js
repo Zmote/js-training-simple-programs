@@ -4,24 +4,89 @@
  * 1) Function constructor
  * 2) Object.create()
  * 3) Factory function
- * 4) Classes
+ * 4) Classes (es6)
+ * 5) Object Literals
  *
  */
 
+// CLASS (SINIF)  --->  OBJECT (NESNE)
+// YEMEK TRAIFI   --->  YEMEK
 
-let x = 1;
+//let arr1 = new Array(3,4,5); // constructor
+//let arr2 = new Array(2,3,4,5,6)
+// Array.prototype.sum = function(){};
 
-function Person(){
+// Function Constructor
+function Person(pFirst, pLast){
+    this.firstName = pFirst;
+    this.lastName = pLast;
     
-    let x = 2; 
-    function innerFunction(){
-        let x = 4;
-        console.log(x);
+    this.sayFullName = function(){
+        return this.firstName + " " + this.lastName;
     }
-    
-    console.log(x);
-    console.log(innerFunction());
 }
 
-console.log(x); // 1
-console.log(Person());
+let ali = new Person("Ali", "Ogretmen");
+let zafer = new Person("Zafer", "Dogan");
+
+
+
+console.log(ali.sayFullName());
+console.log(zafer.sayFullName());
+
+
+
+
+
+
+
+// factory function
+function personFactory(pFirst, pLast){
+    return {
+        firstName: pFirst,
+        lastName: pLast,
+        sayFullBame: function(){
+            return this.firstName + " " + this.lastName;
+        }
+    }
+}
+
+let mehmet = personFactory("mehmet", "dogan");
+let mustafa = personFactory("mustafa", "ertekin");
+
+
+
+
+
+
+
+// Object Literals
+let bektas = {
+    firstName: "mehmet",
+    lastName: "bektas",
+    sayFullBame: function(){
+        return this.firstName + " " + this.lastName;
+    }
+}
+
+let cemil = {
+    firstName: "cemil",
+    lastName: "dogan",
+    sayFullBame: function(){
+        return this.firstName + " " + this.lastName;
+    }
+}
+
+
+let zaferAlternative = {
+    make: function(pFirst, pLast){
+        this.firstName = pFirst;
+        this.lastName = pLast;
+        
+    },
+    firstName: "mehmet",
+    lastName: "bektas",
+    sayFullBame: function(){
+        return this.firstName + " " + this.lastName;
+    }
+}
